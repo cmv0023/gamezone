@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Detalle del Juego</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* MAIN CONTENT - PRODUCT DETAIL CONTAINER */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: row;
+            gap: 2.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* IZQUIERDA - IMAGEN DE JUEGO */
+        .product-media {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        /* DERECHA - DETALLES DEL PRODUCTO */
+        .product-details {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge.stock {
+            background-color: #ecfdf5;
+            color: var(--accent-green);
+            border-color: #a7f3d0;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* BOTONES DE ACCIÓN */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-buy {
+            flex: 2;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            flex: 1;
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-light);
+        }
+
+        /* METADATOS Y REQUISITOS */
+        .meta-info {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* RESPONSIVE (Móviles y Tablets) */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                padding: 1.2rem;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+     <link rel="icon" type="image/x-icon" href="favicon_io/android-chrome-512x512.png">
+</head>
+<body>
+
+   <header>
+    <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        
+        <!-- LOGO A LA IZQUIERDA -->
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+            <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone" style="width: 32px; height: 32px; object-fit: contain;">
+            <span class="logo-text" style="color: #0f172a; font-weight: bold; font-size: 1.2rem;">GameZone</span>
+        </a>
+
+        <!-- ENLACES DE NAVEGACIÓN EN EL CENTRO -->
+        <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;">
+            <li><a href="index.html" style="text-decoration: none; color: #4a5568; font-weight: 600;">Inicio</a></li>
+            <li><a href="categorias.html" style="text-decoration: none; color: #4a5568;">Categorías</a></li>
+            <li><a href="contacto.html" style="text-decoration: none; color: #4a5568;">Contacto</a></li>
+        </ul>
+
+        <!-- ICONOS Y BOTONES A LA DERECHA -->
+        <div class="nav-icons" style="display: flex; align-items: center; gap: 12px;">
+            <span style="cursor: pointer;">🔍</span>
+            <span style="cursor: pointer;">🛒 0</span>
+            <a href="perfil.html" style="text-decoration:none; color:inherit; font-size: 1.1rem;"><span>👤</span></a>
+            <a href="registro.html" class="btn btn-outline-primary btn-sm fw-bold" style="padding: 4px 10px; font-size: 0.8rem;">Registro</a>
+            <a href="login.html" class="btn btn-sm fw-bold" style="background-color: #4f46e5; color: white; border: none; padding: 4px 10px; font-size: 0.8rem;">Iniciar Sesión</a>
+        </div>
+
+    </nav>
+</header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!-- BREADCRUMB / NAVEGACIÓN SECUNDARIA -->
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> &gt; <a href="categorias.html">RPG</a> &gt; Elden Ring: Shadow of the Erdtree
+        </div>
+
+        <!-- CONTENEDOR DEL PRODUCTO (FLEXBOX IZQ - DER) -->
+        <div class="product-container">
+            
+            <!-- SECCIÓN IZQUIERDA: IMAGEN DEL JUEGO -->
+            <div class="product-media">
+                <img src="./img/el-mundo-abierto-de-ea-sports-fc-27-sonaba-espectacular-pero-la-idea.webp" alt="EA Sports FC 27" class="main-image">
+            </div>
+
+            <!-- SECCIÓN DERECHA: DETALLES -->
+            <div class="product-details">
+                <span class="product-category">Deportes</span>
+                <h1 class="product-title">EA Sports FC 27</h1>
+
+                <div class="tags-container">
+                    <span class="badge">PC / PS5 / Xbox</span>
+                    <span class="badge stock">En Stock (Digital)</span>
+                </div>
+
+                <div class="price-section">
+                    <span class="price">€69.99</span>
+                </div>
+
+                <p class="description">
+                    El simulador de fútbol más realista con licencias oficiales
+                </p>
+
+                <div class="action-buttons">
+                    <button class="btn-buy">Comprar Ahora</button>
+                    <button class="btn-secondary">Añadir al Carrito</button>
+                </div>
+
+                  <!-- FICHA TÉCNICA -->
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <span class="meta-label">Desarrollador:</span>
+                        <span class="meta-value">EA</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Editor:</span>
+                        <span class="meta-value">EA</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Fecha de lanzamiento:</span>
+                        <span class="meta-value">2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Clasificación:</span>
+                        <span class="meta-value">PEGI 7</span>
+                    </div>
+                </div>
+
+                 </div>
+        </div>
+    </main>
+
+     <footer>
+        <div class="footer-contenido">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 12px;">
+                    <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone" style="width: 32px; height: 32px; object-fit: contain;">
+                <span class="logo-text" style = "color: #070707; font-size: 20px;">GameZone</span>
+                </a>
+                <p>La tienda digital definitiva para los entusiastas del videojuego de alta gama. Exclusivos, lanzamientos mundiales y el mejor soporte técnico.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>soporte@gamezone.es</p>
+                <p>+34 900 123 456</p>
+                <p>Lunes a Viernes: 9h - 20h</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ubicación & Dirección</h4>
+                <p>Av. de la Constitución 104, Planta 2, Madrid, España</p>
+                <a href="#" class="btn-mapa">📍 Ver mapa de ubicación</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2026 GameZone. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-btn">X</a>
+                <a href="#" class="social-btn">IG</a>
+                <a href="#" class="social-btn">FB</a>
+                <a href="#" class="social-btn">YT</a>
+            </div>
+        </div>
+        <div class="footer" style="text-align: center; padding: 15px; font-size: 1rem; color: #070707;">
+            <p>Esta obra de Carlos Javier Millán Villarejo está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #4f46e5; text-decoration: none;">Licencia Creative Commons Atribución-NoComercial 4.0 Internacional</a>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

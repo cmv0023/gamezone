@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Registro</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon_io/android-chrome-512x512.png">
+</head>
+<body class="bg-light">
+
+    <header>
+    <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        
+        <!-- LOGO A LA IZQUIERDA -->
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+            <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone" style="width: 32px; height: 32px; object-fit: contain;">
+            <span class="logo-text" style="color: #0f172a; font-weight: bold; font-size: 1.2rem;">GameZone</span>
+        </a>
+
+        <!-- ENLACES DE NAVEGACIÓN EN EL CENTRO -->
+        <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;">
+            <li><a href="index.html" style="text-decoration: none; color: #4a5568; font-weight: 600;">Inicio</a></li>
+            <li><a href="categorias.html" style="text-decoration: none; color: #4a5568;">Categorías</a></li>
+            <li><a href="contacto.html" style="text-decoration: none; color: #4a5568;">Contacto</a></li>
+        </ul>
+
+        <!-- ICONOS Y BOTONES A LA DERECHA -->
+        <div class="nav-icons" style="display: flex; align-items: center; gap: 12px;">
+            <span style="cursor: pointer;">🔍</span>
+            <span style="cursor: pointer;">🛒 0</span>
+            <a href="perfil.html" style="text-decoration:none; color:inherit; font-size: 1.1rem;"><span>👤</span></a>
+            <a href="registro.html" class="btn btn-outline-primary btn-sm fw-bold" style="padding: 4px 10px; font-size: 0.8rem;">Registro</a>
+            <a href="login.html" class="btn btn-sm fw-bold" style="background-color: #4f46e5; color: white; border: none; padding: 4px 10px; font-size: 0.8rem;">Iniciar Sesión</a>
+        </div>
+
+    </nav>
+</header>
+
+    <!-- FORMULARIO DE REGISTRO -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow border-0 rounded-4 p-4">
+                    <h3 class="fw-bold text-center mb-4" style="color: #0f172a;">Crear Cuenta</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="regUser" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="regUser" placeholder="GamerPro99" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="regEmail" placeholder="tu_correo@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="regPassword" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold mb-3" style="background-color: #10b981; border: none;">Registrarse</button>
+                        <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">
+                            ¿Ya tienes cuenta? <a href="login.html" style="color: #4f46e5; text-decoration: none; font-weight: bold;">Inicia sesión</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 12px;">
+                    <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone" style="width: 32px; height: 32px; object-fit: contain;">
+                <span class="logo-text">GameZone</span>
+                </a>
+                <p>La tienda digital definitiva para los entusiastas del videojuego de alta gama. Exclusivos, lanzamientos mundiales y el mejor soporte técnico.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>soporte@gamezone.es</p>
+                <p>+34 900 123 456</p>
+                <p>Lunes a Viernes: 9h - 20h</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ubicación & Dirección</h4>
+                <p>Av. de la Constitución 104, Planta 2, Madrid, España</p>
+                <a href="#" class="btn-mapa">📍 Ver mapa de ubicación</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2026 GameZone. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-btn">X</a>
+                <a href="#" class="social-btn">IG</a>
+                <a href="#" class="social-btn">FB</a>
+                <a href="#" class="social-btn">YT</a>
+            </div>
+        </div>
+        <div class="footer" style="text-align: center; padding: 15px; font-size: 1rem; color: #070707;">
+            <p>Esta obra de Carlos Javier Millán Villarejo está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #4f46e5; text-decoration: none;">Licencia Creative Commons Atribución-NoComercial 4.0 Internacional</a>.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

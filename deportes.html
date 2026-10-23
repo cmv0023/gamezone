@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Deportes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon_io/android-chrome-512x512.png">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            
+            <!-- LOGO A LA IZQUIERDA -->
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone" style="width: 32px; height: 32px; object-fit: contain;">
+                <span class="logo-text" style="color: #0f172a; font-weight: bold; font-size: 1.2rem;">GameZone</span>
+            </a>
+
+            <!-- ENLACES DE NAVEGACIÓN EN EL CENTRO -->
+            <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;">
+                <li><a href="index.html" style="text-decoration: none; color: #4a5568; font-weight: 600;">Inicio</a></li>
+                <li><a href="categorias.html" style="text-decoration: none; color: #4a5568;">Categorías</a></li>
+                <li><a href="contacto.html" style="text-decoration: none; color: #4a5568;">Contacto</a></li>
+            </ul>
+
+            <!-- ICONOS Y BOTONES A LA DERECHA -->
+            <div class="nav-icons" style="display: flex; align-items: center; gap: 12px;">
+                <span style="cursor: pointer;">🔍</span>
+                <span style="cursor: pointer;">🛒 0</span>
+                <a href="perfil.html" style="text-decoration:none; color:inherit; font-size: 1.1rem;"><span>👤</span></a>
+                <a href="registro.html" class="btn btn-outline-primary btn-sm fw-bold" style="padding: 4px 10px; font-size: 0.8rem;">Registro</a>
+                <a href="login.html" class="btn btn-sm fw-bold" style="background-color: #4f46e5; color: white; border: none; padding: 4px 10px; font-size: 0.8rem;">Iniciar Sesión</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h1 class="section-title" style="font-size: 28px; color: var(--text-dark);">Deportes</h1>
+        <p class="section-subtitle mb-4">Compite en los mejores juegos deportivos del momento</p>
+
+        <!-- PRIMERA FILA DE TARJETAS -->
+        <div class="grid-tarjetas" style="margin-bottom: 24px;">
+            
+            <a href="fifa27.html">
+                <article class="tarjeta">
+                    <img src="./img/el-mundo-abierto-de-ea-sports-fc-27-sonaba-espectacular-pero-la-idea.webp" alt="EA Sports FC 27">
+                    <div class="tarjeta-body">
+                        <h3>EA Sports FC 27</h3>
+                        <p>El simulador de fútbol definitivo con licencias oficiales de todas las ligas</p>
+                        <span class="tarjeta-precio">€69.99</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="fifa27.html">
+                <article class="tarjeta">
+                    <img src="./img/NBA2k27_App-Config_Thumbnails_1200x630px.jpg" alt="NBA 2K27">
+                    <div class="tarjeta-body">
+                        <h3>NBA 2K27</h3>
+                        <p>Baloncesto realista con el modo MyCareer más inmersivo</p>
+                        <span class="tarjeta-precio">€59.99</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="fifa27.html">
+                <article class="tarjeta">
+                    <img src="./img/2022211756960_1.jpg" alt="Gran Turismo 7">
+                    <div class="tarjeta-body">
+                        <h3>Gran Turismo 7</h3>
+                        <p>Simulador de conducción con más de 500 coches y circuitos reales</p>
+                        <span class="tarjeta-precio">€69.99</span>
+                    </div>
+                </article>
+            </a>
+
+        </div>
+
+        <!-- SEGUNDA FILA DE TARJETAS -->
+        <div class="grid-tarjetas" style="margin-bottom: 40px;">
+            
+            <a href="fifa27.html">
+                <article class="tarjeta">
+                    <img src="./img/2k27viper_0149bec7-4418-4e3b-805f-50f80c6c9b9e.webp" alt="WWE 2K27">
+                    <div class="tarjeta-body">
+                        <h3>WWE 2K27</h3>
+                        <p>Lucha libre profesional con todos los luchadores de la WWE</p>
+                        <span class="tarjeta-precio">€69.99</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="fifa27.html">
+                <article class="tarjeta">
+                    <img src="./img/Apple-Arcade-Madden-NFL-27-Arcade-Edition-1_big.jpg.large.jpg" alt="Madden NFL 27">
+                    <div class="tarjeta-body">
+                        <h3>Madden NFL 27</h3>
+                        <p>Fútbol americano con la jugabilidad más realista de la saga</p>
+                        <span class="tarjeta-precio">€59.99</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="fifa27.html">
+                <article class="tarjeta">
+                    <img src="./img/mlb-the-show-27-cover-athlete-FSUSJLwi-6fu.webp" alt="MLB The Show 27">
+                    <div class="tarjeta-body">
+                        <h3>MLB The Show</h3>
+                        <p>Béisbol profesional con estadios y equipos oficiales de la MLB</p>
+                        <span class="tarjeta-precio">€69.99</span>
+                    </div>
+                </article>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+                    <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone" style="width: 32px; height: 32px; object-fit: contain;">
+                    <span class="logo-text">GameZone</span>
+                </a>
+                <p>La tienda digital definitiva para los entusiastas del videojuego de alta gama. Exclusivos, lanzamientos mundiales y el mejor soporte técnico.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>soporte@gamezone.es</p>
+                <p>+34 900 123 456</p>
+                <p>Lunes a Viernes: 9h - 20h</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ubicación & Dirección</h4>
+                <p>Av. de la Constitución 104, Planta 2, Madrid, España</p>
+                <a href="#" class="btn-mapa">📍 Ver mapa de ubicación</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2026 GameZone. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-btn">X</a>
+                <a href="#" class="social-btn">IG</a>
+                <a href="#" class="social-btn">FB</a>
+                <a href="#" class="social-btn">YT</a>
+            </div>
+        </div>
+        <div style="text-align: center; padding: 15px; font-size: 1rem; color: #070707;">
+            <p>Esta obra de Carlos Javier Millán Villarejo está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #4f46e5; text-decoration: none;">Licencia Creative Commons Atribución-NoComercial 4.0 Internacional</a>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
