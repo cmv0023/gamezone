@@ -29,7 +29,10 @@
             <!-- ICONOS Y BOTONES A LA DERECHA -->
             <div class="nav-icons" style="display: flex; align-items: center; gap: 12px;">
                 <span style="cursor: pointer;">🔍</span>
-                <span style="cursor: pointer;">🛒 0</span>
+                <button class="btn btn-outline-dark position-relative me-3" id="btn-carrito" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                    🛒 Carrito
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador-carrito" style="display: none; border: 2px solid white; font-size: 0.75rem;">0</span>
+                </button>
                 <a href="perfil.html" style="text-decoration:none; color:inherit; font-size: 1.1rem;"><span>👤</span></a>
                 <a href="registro.html" class="btn btn-outline-primary btn-sm fw-bold" style="padding: 4px 10px; font-size: 0.8rem;">Registro</a>
                 <a href="login.html" class="btn btn-sm fw-bold" style="background-color: #4f46e5; color: white; border: none; padding: 4px 10px; font-size: 0.8rem;">Iniciar Sesión</a>
@@ -45,35 +48,38 @@
         <!-- PRIMERA FILA DE TARJETAS -->
         <div class="grid-tarjetas" style="margin-bottom: 24px;">
             
-            <a href="fifa27.html">
+            <a href="fifa27.html" style="text-decoration: none; color: inherit;">
                 <article class="tarjeta">
                     <img src="./img/capsule_616x353 (1).jpg" alt="Resident Evil 9">
                     <div class="tarjeta-body">
                         <h3>Resident Evil Requiem</h3>
                         <p>Survival horror en un nuevo escenario lleno de terror biológico</p>
-                        <span class="tarjeta-precio">€69.99</span>
+                        <span class="tarjeta-precio d-block mb-3">€69.99</span>
+                        <button class="btn btn-success w-100 fw-bold" onclick="event.preventDefault(); agregarAlCarrito('Resident Evil Requiem', 69.99);">Añadir al carrito</button>
                     </div>
                 </article>
             </a>
 
-            <a href="fifa27.html">
+            <a href="fifa27.html" style="text-decoration: none; color: inherit;">
                 <article class="tarjeta">
                     <img src="./img/header (1).jpg" alt="Silent Hill 2 Remake">
                     <div class="tarjeta-body">
                         <h3>Silent Hill 2 Remake</h3>
                         <p>El clásico del terror psicológico reimaginado con gráficos actuales</p>
-                        <span class="tarjeta-precio">€59.99</span>
+                        <span class="tarjeta-precio d-block mb-3">€59.99</span>
+                        <button class="btn btn-success w-100 fw-bold" onclick="event.preventDefault(); agregarAlCarrito('Silent Hill 2 Remake', 59.99);">Añadir al carrito</button>
                     </div>
                 </article>
             </a>
 
-            <a href="fifa27.html">
+            <a href="fifa27.html" style="text-decoration: none; color: inherit;">
                 <article class="tarjeta">
                     <img src="./img/Alan-Wake-2.webp" alt="Alan Wake 3">
                     <div class="tarjeta-body">
                         <h3>Alan Wake 3</h3>
                         <p>Thriller sobrenatural donde la ficción y la realidad se entrelazan</p>
-                        <span class="tarjeta-precio">€49.99</span>
+                        <span class="tarjeta-precio d-block mb-3">€49.99</span>
+                        <button class="btn btn-success w-100 fw-bold" onclick="event.preventDefault(); agregarAlCarrito('Alan Wake 3', 49.99);">Añadir al carrito</button>
                     </div>
                 </article>
             </a>
@@ -83,35 +89,38 @@
         <!-- SEGUNDA FILA DE TARJETAS -->
         <div class="grid-tarjetas" style="margin-bottom: 40px;">
             
-            <a href="fifa27.html">
+            <a href="fifa27.html" style="text-decoration: none; color: inherit;">
                 <article class="tarjeta">
                     <img src="./img/maxresdefault.jpg" alt="The Callisto Protocol 2">
                     <div class="tarjeta-body">
                         <h3>The Callisto Protocol 2</h3>
                         <p>Terror espacial con combate visceral en una estación abandonada</p>
-                        <span class="tarjeta-precio">€69.99</span>
+                        <span class="tarjeta-precio d-block mb-3">€69.99</span>
+                        <button class="btn btn-success w-100 fw-bold" onclick="event.preventDefault(); agregarAlCarrito('The Callisto Protocol 2', 69.99);">Añadir al carrito</button>
                     </div>
                 </article>
             </a>
 
-            <a href="fifa27.html">
+            <a href="fifa27.html" style="text-decoration: none; color: inherit;">
                 <article class="tarjeta">
                     <img src="./img/hq720.jpg" alt="Fatal Frame: Crimson Moon">
                     <div class="tarjeta-body">
                         <h3>Fatal Frame: Crimson Moon</h3>
                         <p>Horror japonés donde tu única arma es una cámara fotográfica</p>
-                        <span class="tarjeta-precio">€59.99</span>
+                        <span class="tarjeta-precio d-block mb-3">€59.99</span>
+                        <button class="btn btn-success w-100 fw-bold" onclick="event.preventDefault(); agregarAlCarrito('Fatal Frame: Crimson Moon', 59.99);">Añadir al carrito</button>
                     </div>
                 </article>
             </a>
 
-            <a href="fifa27.html">
+            <a href="fifa27.html" style="text-decoration: none; color: inherit;">
                 <article class="tarjeta">
                     <img src="./img/sddefault.jpg" alt="Dead Space Resurrection">
                     <div class="tarjeta-body">
                         <h3>Dead Space Resurrection</h3>
                         <p>Desmembra necromorphs en los pasillos de una nave espacial</p>
-                        <span class="tarjeta-precio">€49.99</span>
+                        <span class="tarjeta-precio d-block mb-3">€49.99</span>
+                        <button class="btn btn-success w-100 fw-bold" onclick="event.preventDefault(); agregarAlCarrito('Dead Space Resurrection', 49.99);">Añadir al carrito</button>
                     </div>
                 </article>
             </a>
@@ -161,6 +170,113 @@
             <p>Esta obra de Carlos Javier Millán Villarejo está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #4f46e5; text-decoration: none;">Licencia Creative Commons Atribución-NoComercial 4.0 Internacional</a>.</p>
         </div>
     </footer>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCarritoLabel">Tu Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="lista-carrito" class="list-group mb-3">
+                        <!-- Los productos se añadirán aquí dinámicamente -->
+                    </ul>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong>Total:</strong>
+                        <span id="total-carrito" class="fs-5 fw-bold text-primary">€0.00</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-primary" id="btn-finalizar-compra" data-bs-toggle="modal" data-bs-target="#modalConfirmacion" disabled>Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Compra -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="modalConfirmacionLabel">¡Compra Realizada!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="fs-5 mt-3">✅ Tu compra se ha procesado con éxito.</p>
+                    <p class="text-muted">Recibirás un correo de confirmación con la clave del juego en breve.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carritoGameZone')) || [];
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const listaCarrito = document.getElementById('lista-carrito');
+            const contadorCarrito = document.getElementById('contador-carrito');
+            const totalCarrito = document.getElementById('total-carrito');
+            const btnFinalizar = document.getElementById('btn-finalizar-compra');
+            
+            listaCarrito.innerHTML = '';
+            let total = 0;
+
+            carrito.forEach((producto, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center lh-sm';
+                li.innerHTML = `
+                    <div>
+                        <h6 class="my-0">${producto.nombre}</h6>
+                    </div>
+                    <div>
+                        <span class="text-muted me-3">€${producto.precio.toFixed(2)}</span>
+                        <button class="btn btn-sm btn-outline-danger" style="border:none;" onclick="eliminarDelCarrito(${index})">🗑️</button>
+                    </div>
+                `;
+                listaCarrito.appendChild(li);
+                total += producto.precio;
+            });
+
+            if (carrito.length > 0) {
+                contadorCarrito.style.display = 'inline-block';
+                contadorCarrito.innerText = carrito.length;
+                btnFinalizar.disabled = false;
+            } else {
+                contadorCarrito.style.display = 'none';
+                btnFinalizar.disabled = true;
+            }
+            
+            totalCarrito.innerText = `€${total.toFixed(2)}`;
+            localStorage.setItem('carritoGameZone', JSON.stringify(carrito));
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+
+        document.getElementById('btn-finalizar-compra').addEventListener('click', () => {
+            if(carrito.length > 0) {
+                carrito = [];
+                actualizarCarrito();
+            }
+        });
+
+        actualizarCarrito();
+    </script>
 
 </body>
 </html>

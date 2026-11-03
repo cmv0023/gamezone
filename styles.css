@@ -19,6 +19,16 @@
     box-sizing: border-box;
 }
 
+/* Evitar desbordamiento horizontal y espacios blancos a la derecha */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
@@ -539,4 +549,82 @@ footer {
 .grid-tarjetas > a:hover .tarjeta {
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+
+
+
+@media (max-width: 768px) {
+  
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px !important;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .nav-icons .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .hero {
+        padding: 40px 10px;
+        background-position: center;
+    }
+    
+    .hero-content {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: 25px 15px;
+        border-radius: 12px;
+        width: 92%; 
+        margin: 0 auto;
+    }
+    
+    .hero-content h1, 
+    .hero-content p {
+        color: #ffffff !important;
+    }
+
+    .grid-tarjetas {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .footer-contenido {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px 15px;
+    }
+    
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 15px;
+    }
 }
