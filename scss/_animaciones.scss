@@ -1,0 +1,70 @@
+// =========================================
+// ANIMACIONES PRÁCTICA 7 Y 8
+// =========================================
+
+// 1. SLIDER DE IMÁGENES CSS
+.slider-container {
+    width: 100%;
+    max-width: 550px; /* Bájalo a 550px o 500px para hacerlo más estrecho (antes 750px) */
+    margin: 3rem auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    position: relative;
+    aspect-ratio: 16 / 9; /* Mantiene la proporción de rectángulo perfecto */
+    background-color: #0f172a; /* Fondo oscuro por si la foto tiene un formato distinto y quedan márgenes */
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 300%; 
+    height: 100%;
+    animation: slide 12s infinite cubic-bezier(0.77, 0, 0.175, 1);
+    
+    img {
+        width: 33.3333%;
+        height: 100%;
+        object-fit: contain; /* La magia: 'contain' encaja la foto entera cueste lo que cueste, sin cortar un solo píxel */
+        object-position: center; 
+    }
+}
+
+@keyframes slide {
+    0%, 25% { transform: translateX(0); }
+    33%, 58% { transform: translateX(-33.3333%); }
+    66%, 91% { transform: translateX(-66.6666%); }
+    100% { transform: translateX(0); }
+}
+
+// 2. ANIMACIÓN EN TARJETAS DE JUEGOS (Se levantan)
+.tarjeta {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-tarjetas a:hover .tarjeta {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+// 3. ANIMACIÓN DEL BOTÓN DEL CARRITO (Inversión de colores)
+#btn-carrito {
+    animation: none !important;
+    transform: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    // El símbolo & en SASS significa "cuando este mismo botón tenga hover"
+    &:hover {
+        background-color: $dark; 
+        color: white !important;
+    }
+}
+
+// Animación exclusiva para las tarjetas nuevas de Bootstrap
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+    }
+}

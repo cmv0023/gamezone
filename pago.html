@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Finalizar Compra</title>
+    <!-- Ruta actualizada a tu nuevo CSS compilado -->
+    <link rel="stylesheet" href="scss/styles.css"> 
+    <link rel="icon" type="image/x-icon" href="favicon_io/android-chrome-512x512.png">
+</head>
+<body class="bg-light">
+    
+    <header>
+        <nav class="navbar"
+            style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+
+            <!-- LOGO A LA IZQUIERDA -->
+            <a href="index.html" class="logo"
+                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone"
+                    style="width: 32px; height: 32px; object-fit: contain;">
+                <span class="logo-text" style="color: #0f172a; font-weight: bold; font-size: 1.2rem;">GameZone</span>
+            </a>
+
+            <!-- ENLACES DE NAVEGACIÓN EN EL CENTRO -->
+            <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;">
+                <li><a href="index.html" style="text-decoration: none; color: #4a5568; font-weight: 600;">Inicio</a>
+                </li>
+                <li><a href="categorias.html" style="text-decoration: none; color: #4a5568;">Categorías</a></li>
+                <li><a href="novedades.html" style="text-decoration: none; color: #4a5568;">Novedades</a></li>
+                <li><a href="contacto.html" style="text-decoration: none; color: #4a5568;">Contacto</a></li>
+            </ul>
+
+            <!-- ICONOS Y BOTONES A LA DERECHA -->
+            <div class="nav-icons" style="display: flex; align-items: center; gap: 12px;">
+                <span style="cursor: pointer;">🔍</span>
+                <button class="btn btn-outline-dark position-relative me-3" id="btn-carrito" data-bs-toggle="modal"
+                    data-bs-target="#modalCarrito">
+                    🛒 Carrito
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        id="contador-carrito">0</span>
+                </button>
+                <a href="perfil.html"
+                    style="text-decoration:none; color:inherit; font-size: 1.1rem;"><span>👤</span></a>
+                <a href="registro.html" class="btn btn-outline-primary btn-sm fw-bold"
+                    style="padding: 4px 10px; font-size: 0.8rem;">Registro</a>
+                <a href="login.html" class="btn btn-sm fw-bold"
+                    style="background-color: #4f46e5; color: white; border: none; padding: 4px 10px; font-size: 0.8rem;">Iniciar
+                    Sesión</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="py-5 text-center">
+            <h2 class="fw-bold text-dark">Finalizar Compra</h2>
+            <p class="lead text-muted">Completa tus datos de envío y facturación de forma segura.</p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Resumen del Pedido (Columna Derecha) -->
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary fw-bold">Tu pedido</span>
+                </h4>
+                <ul class="list-group mb-3 shadow-sm border-0" id="resumen-pedido">
+                    <!-- Se rellena automáticamente desde localStorage -->
+                </ul>
+                <div class="card border-0 shadow-sm p-3 bg-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">Total (EUR)</span>
+                        <strong class="fs-5 text-primary" id="total-pedido">€0.00</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de Pago (Columna Izquierda) -->
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3 fw-bold">Dirección de facturación</h4>
+                <form class="needs-validation" id="form-pago" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="nombre" class="form-label fw-bold">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                            <div class="invalid-feedback">Introduce tu nombre.</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="apellidos" class="form-label fw-bold">Apellidos</label>
+                            <input type="text" class="form-control" id="apellidos" required>
+                            <div class="invalid-feedback">Introduce tus apellidos.</div>
+                        </div>
+                        <div class="col-12">
+                            <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                            <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+                        </div>
+                        <div class="col-12">
+                            <label for="direccion" class="form-label fw-bold">Dirección de envío</label>
+                            <input type="text" class="form-control" id="direccion" placeholder="Calle Falsa 123" required>
+                            <div class="invalid-feedback">Introduce tu dirección de envío.</div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <h4 class="mb-3 fw-bold">Método de Pago</h4>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="credito" name="metodoPago" type="radio" class="form-check-input" checked required>
+                            <label class="form-check-label" for="credito">Tarjeta de Crédito</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="paypal" name="metodoPago" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="paypal">PayPal</label>
+                        </div>
+                    </div>
+
+                    <div class="row gy-3 mb-4" id="campos-tarjeta">
+                        <div class="col-md-6">
+                            <label for="titular" class="form-label fw-bold">Titular de la tarjeta</label>
+                            <input type="text" class="form-control" id="titular" required>
+                            <div class="invalid-feedback">Introduce el titular de la tarjeta.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="numeroTarjeta" class="form-label fw-bold">Número de la tarjeta</label>
+                            <input type="text" class="form-control" id="numeroTarjeta" placeholder="0000 0000 0000 0000" required>
+                            <div class="invalid-feedback">Introduce el número de tarjeta.</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="caducidad" class="form-label fw-bold">Caducidad</label>
+                            <input type="text" class="form-control" id="caducidad" placeholder="MM/AA" required>
+                            <div class="invalid-feedback">Indica la caducidad.</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cvv" class="form-label fw-bold">CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                            <div class="invalid-feedback">Indica el CVV.</div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning d-none" id="aviso-pedido-vacio" role="alert">
+                        Añade al menos un producto al pedido antes de realizar el pago.
+                    </div>
+
+                    <!-- Se valida por JavaScript antes de abrir modalConfirmacion -->
+                    <button class="w-100 btn btn-primary btn-lg fw-bold shadow-sm" type="submit" id="btn-pagar-ahora">Pagar €0.00</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 12px;">
+                    <img src="favicon_io/android-chrome-512x512.png" alt="Logo GameZone"
+                        style="width: 32px; height: 32px; object-fit: contain;">
+                    <span class="logo-text">GameZone</span>
+                </a>
+                <p>La tienda digital definitiva para los entusiastas del videojuego de alta gama. Exclusivos,
+                    lanzamientos mundiales y el mejor soporte técnico.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>soporte@gamezone.es</p>
+                <p>+34 900 123 456</p>
+                <p>Lunes a Viernes: 9h - 20h</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ubicación & Dirección</h4>
+                <p>Av. de la Constitución 104, Planta 2, Madrid, España</p>
+                <a href="#" class="btn-mapa">📍 Ver mapa de ubicación</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2026 GameZone. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-btn">X</a>
+                <a href="#" class="social-btn">IG</a>
+                <a href="#" class="social-btn">FB</a>
+                <a href="#" class="social-btn">YT</a>
+            </div>
+        </div>
+        <div class="footer" style="text-align: center; padding: 15px; font-size: 1rem; color: #070707;">
+            <p>Esta obra de Carlos Javier Millán Villarejo está bajo una <a rel="license"
+                    href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank"
+                    style="color: #4f46e5; text-decoration: none;">Licencia Creative Commons Atribución-NoComercial 4.0
+                    Internacional</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCarritoLabel">Tu Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="lista-carrito" class="list-group mb-3">
+                        <!-- Los productos se añadirán aquí dinámicamente -->
+                    </ul>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong>Total:</strong>
+                        <span id="total-carrito" class="fs-5 fw-bold text-primary">€0.00</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-primary" id="btn-finalizar-compra" disabled>Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Compra -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="modalConfirmacionLabel">¡Compra Realizada!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="fs-5 mt-3">✅ Tu compra se ha procesado con éxito.</p>
+                    <p class="text-muted">Recibirás un correo de confirmación con la clave del juego en breve.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carritoGameZone')) || [];
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+            renderizarResumenPago();
+        }
+
+        function actualizarCarrito() {
+            const listaCarrito = document.getElementById('lista-carrito');
+            const contadorCarrito = document.getElementById('contador-carrito');
+            const totalCarrito = document.getElementById('total-carrito');
+            const btnFinalizar = document.getElementById('btn-finalizar-compra');
+            
+            listaCarrito.innerHTML = '';
+            let total = 0;
+
+            carrito.forEach((producto, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center lh-sm';
+                li.innerHTML = `
+                    <div>
+                        <h6 class="my-0">${producto.nombre}</h6>
+                    </div>
+                    <div>
+                        <span class="text-muted me-3">€${producto.precio.toFixed(2)}</span>
+                        <button class="btn btn-sm btn-outline-danger" style="border:none;" onclick="eliminarDelCarrito(${index})">🗑️</button>
+                    </div>
+                `;
+                listaCarrito.appendChild(li);
+                total += producto.precio;
+            });
+
+            if (carrito.length > 0) {
+                contadorCarrito.style.display = 'inline-block';
+                contadorCarrito.innerText = carrito.length;
+                btnFinalizar.disabled = false;
+            } else {
+                contadorCarrito.style.display = 'none';
+                btnFinalizar.disabled = true;
+            }
+            
+            totalCarrito.innerText = `€${total.toFixed(2)}`;
+            localStorage.setItem('carritoGameZone', JSON.stringify(carrito));
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+            renderizarResumenPago();
+        }
+
+        function quitarProductoPedido(nombre, precio) {
+            carrito = carrito.filter(item => !(item.nombre === nombre && item.precio === precio));
+            actualizarCarrito();
+            renderizarResumenPago();
+        }
+
+        document.getElementById('btn-finalizar-compra').addEventListener('click', () => {
+            if (carrito.length > 0) {
+                window.location.href = 'pago.html';
+            }
+        });
+
+        function renderizarResumenPago() {
+            carrito = JSON.parse(localStorage.getItem('carritoGameZone')) || [];
+            const listaResumen = document.getElementById('resumen-pedido');
+            const totalElemento = document.getElementById('total-pedido');
+            const btnPagar = document.getElementById('btn-pagar-ahora');
+            const avisoVacio = document.getElementById('aviso-pedido-vacio');
+
+            if (!listaResumen || !totalElemento) return;
+
+            listaResumen.innerHTML = '';
+
+            if (carrito.length === 0) {
+                listaResumen.innerHTML = `
+                    <li class="list-group-item p-3 text-center text-muted">
+                        No tienes productos en tu pedido ahora mismo.
+                    </li>
+                `;
+                totalElemento.innerText = '€0.00';
+                if (btnPagar) {
+                    btnPagar.disabled = true;
+                    btnPagar.innerText = 'Pagar €0.00';
+                }
+                if (avisoVacio) avisoVacio.classList.remove('d-none');
+                return;
+            }
+
+            if (avisoVacio) avisoVacio.classList.add('d-none');
+
+            const agrupados = [];
+            carrito.forEach(item => {
+                const existente = agrupados.find(p => p.nombre === item.nombre && p.precio === item.precio);
+                if (existente) {
+                    existente.cantidad += 1;
+                } else {
+                    agrupados.push({ nombre: item.nombre, precio: item.precio, cantidad: 1 });
+                }
+            });
+
+            let subtotal = 0;
+
+            agrupados.forEach(prod => {
+                const importeLinea = prod.precio * prod.cantidad;
+                subtotal += importeLinea;
+
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center lh-sm p-3';
+                li.innerHTML = `
+                    <div>
+                        <h6 class="my-0 fw-bold">${prod.nombre}</h6>
+                        <small class="text-muted">Cantidad: ${prod.cantidad}</small>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-muted">€${importeLinea.toFixed(2)}</span>
+                        <button type="button" class="btn btn-sm btn-outline-danger" style="border:none;" title="Quitar del pedido" onclick="quitarProductoPedido('${prod.nombre.replace(/'/g, "\\'")}', ${prod.precio})">🗑️</button>
+                    </div>
+                `;
+                listaResumen.appendChild(li);
+            });
+
+            totalElemento.innerText = `€${subtotal.toFixed(2)}`;
+            if (btnPagar) {
+                btnPagar.disabled = false;
+                btnPagar.innerText = `Pagar €${subtotal.toFixed(2)}`;
+            }
+        }
+
+        const formPago = document.getElementById('form-pago');
+        const radioCredito = document.getElementById('credito');
+        const radioPaypal = document.getElementById('paypal');
+        const inputsTarjeta = ['titular', 'numeroTarjeta', 'caducidad', 'cvv'].map(id => document.getElementById(id));
+
+        function actualizarObligatoriedadTarjeta() {
+            const requiereTarjeta = radioCredito.checked;
+            inputsTarjeta.forEach(input => {
+                if (!input) return;
+                input.required = requiereTarjeta;
+
+                if (!requiereTarjeta && input.value.trim() === '') {
+                    input.classList.remove('is-valid', 'is-invalid');
+                }
+            });
+
+            if (formPago.classList.contains('was-validated') && !requiereTarjeta) {
+                const camposNoTarjeta = Array.from(formPago.elements).filter(
+                    el => !inputsTarjeta.includes(el) && el.willValidate
+                );
+                const todoLoDemasValido = camposNoTarjeta.every(el => el.checkValidity());
+                if (todoLoDemasValido) {
+                    formPago.classList.remove('was-validated');
+                }
+            }
+        }
+
+        radioCredito.addEventListener('change', actualizarObligatoriedadTarjeta);
+        radioPaypal.addEventListener('change', actualizarObligatoriedadTarjeta);
+
+        formPago.addEventListener('submit', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (carrito.length === 0) {
+                renderizarResumenPago();
+                return;
+            }
+
+            if (!formPago.checkValidity()) {
+                formPago.classList.add('was-validated');
+                return;
+            }
+
+            formPago.classList.add('was-validated');
+
+            carrito = [];
+            localStorage.setItem('carritoGameZone', JSON.stringify(carrito));
+            actualizarCarrito();
+            renderizarResumenPago();
+            formPago.classList.remove('was-validated');
+            formPago.reset();
+            actualizarObligatoriedadTarjeta();
+
+            const modalConfirmacion = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+            modalConfirmacion.show();
+        });
+
+        actualizarCarrito();
+        renderizarResumenPago();
+    </script>
+</body>
+</html>
